@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Financeira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">Calculadora</a></li>
+            <li><a href="lista.html">Lista de Tarefas</a></li>
+            <li><a href="previsao.html">Previsão do Tempo</a></li>
+            <li><a href="financeiro.html">Tabela Financeira</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Tabela Financeira</h1>
+
+        <h3>Adicionar Transação</h3>
+        <input type="text" id="descricao" placeholder="Descrição">
+        <select id="tipo">
+            <option value="ganho">Ganho</option>
+            <option value="gasto">Gasto</option>
+        </select>
+        <input type="number" id="valor" placeholder="Valor">
+        <input type="date" id="data">
+        <button onclick="adicionarTransacao()">Adicionar</button>
+
+        <h2>Ganhos</h2>
+        <ul id="lista-ganhos"></ul>
+
+        <h2>Gastos</h2>
+        <ul id="lista-gastos"></ul>
+
+        <h2>Lucro/Perda</h2>
+        <p id="saldo-final">Lucro/Perda: R$ 0.00</p>
+        <p>Total Ganhos: <span id="total-ganhos">R$ 0.00</span></p>
+        <p>Total Gastos: <span id="total-gastos">R$ 0.00</span></p>
+
+        <button onclick="excluirSelecionados()">Excluir Selecionados</button>
+    </div>
+
+    <script src="financeiro.js"></script>
+</body>
+
+</html>

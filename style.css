@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(45deg, black, crimson);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    background-color: rgb(31, 31, 31);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sidebar ul li a:hover {
+    background-color: black;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fundo {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    text-align: center;
+}
+
+.finance-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.tabs button {
+    background-color: rgb(31, 31, 31);
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tabs button:hover {
+    background-color: black;
+}
+
+.aba {
+    margin-top: 20px;
+}
+
+input,
+select,
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input {
+    border: none;
+}
+
+button {
+    background-color: crimson;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+ul li {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.calculadora {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    width: 380px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+p#resultado {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    font-size: 28px;
+    border-radius: 10px;
+    min-height: 50px;
+    text-align: right;
+    color: #fff;
+    margin-bottom: 15px;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+}
+
+button.botao {
+    width: 80px;
+    height: 80px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    margin: 5px;
+    background-color: crimson;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button.botao:hover {
+    background-color: darkred;
+    transform: scale(1.08);
+}
+
+button.botao:active {
+    transform: scale(0.95);
+}
+
+button[style*="height"] {
+    height: 165px !important;
+}
+
+button[style*="width"] {
+    width: 165px !important;
+}
