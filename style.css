@@ -130,11 +130,11 @@ ul li {
 
 .calculadora {
     background: rgba(0, 0, 0, 0.9);
-    padding: 25px;
-    border-radius: 15px;
+    padding: 20px;
+    border-radius: 25px;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
     text-align: center;
-    width: 380px;
+    width: 400px;
 }
 
 h1 {
@@ -189,4 +189,210 @@ button[style*="height"] {
 
 button[style*="width"] {
     width: 165px !important;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: left 0.3s ease-in-out;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.sidebar.collapsed ul {
+    display: none;
+    /* Esconde os itens do menu */
+}
+
+.menu-toggle {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Estilos do menu */
+.sidebar {
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+/* Área invisível para reativar o menu */
+.menu-hover-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    /* Pequena área no canto */
+    height: 100px;
+    /* O suficiente para detectar o mouse */
+    z-index: 1000;
+    background: transparent;
+}
+
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 0;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding-top: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.sidebar ul li a:hover {
+    background-color: #575757;
+}
+
+/* Content */
+.content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
+/* Estilo para a lateral direita onde os botões de categoria serão colocados */
+.categorias-botoes {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.categorias-botoes button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.categorias-botoes button:hover {
+    background-color: #45a049;
+}
+
+/* Adicione qualquer outro estilo que você já tenha em seu arquivo CSS */
+
+/* Estilo para o contêiner dos botões de categorias */
+#categorias-botoes {
+    position: fixed;
+    /* Fixa os botões na lateral */
+    right: 10px;
+    /* Distância da borda direita */
+    top: 100px;
+    /* Distância do topo da página (ajuste conforme necessário) */
+    display: flex;
+    flex-direction: column;
+    /* Alinha os botões verticalmente */
+    gap: 10px;
+    /* Espaço entre os botões */
+}
+
+/* Estilo para os botões das categorias */
+#categorias-botoes button {
+    padding: 10px;
+    background-color: #45a049;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+#categorias-botoes button:hover {
+    background-color: #45a049;
 }

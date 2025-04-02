@@ -1,63 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <title>Bem-vindo ao Meu Financeiro</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .intro {
+            background-color: #ffffff;
+            padding: 50px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-size: 2.5em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.3em;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature h3 {
+            font-size: 1.8em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .feature p {
+            font-size: 1em;
+            color: #777;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .intro h2 {
+                font-size: 2em;
+            }
+
+            .cta-button {
+                font-size: 1.1em;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="sidebar">
-        <ul>
-            <li><a href="index.html">Calculadora</a></li>
-            <li><a href="lista.html">Lista de Tarefas</a></li>
-            <li><a href="previsao.html">Previsão do Tempo</a></li>
-            <li><a href="financeiro.html">Tabela Financeira</a></li>
-        </ul>
-    </div>
+
+
     <div class="content">
-        <div class="fundo">
-            <div class="calculadora">
-                <h1>Calculadora</h1>
-                <p id="resultado"></p>
-                <table>
-                    <tr>
-                        <td><button class="botao" onclick="clean()">C</button></td>
-                        <td><button class="botao" onclick="back()">&#60;</button></td>
-                        <td><button class="botao" onclick="insert('/')">/</button></td>
-                        <td><button class="botao" onclick="insert('*')">X</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="botao" onclick="insert('7')">7</button></td>
-                        <td><button class="botao" onclick="insert('8')">8</button></td>
-                        <td><button class="botao" onclick="insert('9')">9</button></td>
-                        <td><button class="botao" onclick="insert('-')">-</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="botao" onclick="insert('4')">4</button></td>
-                        <td><button class="botao" onclick="insert('5')">5</button></td>
-                        <td><button class="botao" onclick="insert('6')">6</button></td>
-                        <td><button class="botao" onclick="insert('+')">+</button></td>
-                    </tr>
-                    <tr>
-                        <td><button class="botao" onclick="insert('1')">1</button></td>
-                        <td><button class="botao" onclick="insert('2')">2</button></td>
-                        <td><button class="botao" onclick="insert('3')">3</button></td>
-                        <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calcular()">=</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')">0</button>
-                        </td>
-                        <td><button class="botao" onclick="insert('.')">.</button></td>
-                    </tr>
-                </table>
+        <!-- Seção de Introdução -->
+        <section class="intro">
+            <h2>Controle suas finanças de forma simples e eficiente</h2>
+            <p>Com o Meu Financeiro, você pode controlar seus ganhos, despesas e investimentos, garantindo um futuro
+                mais seguro. A maneira mais fácil de organizar sua vida financeira!</p>
+            <a href="meu-financeiro.html" class="cta-button">Comece Agora</a>
+        </section>
+
+        <!-- Seção de Benefícios -->
+        <section class="features">
+            <div class="feature">
+                <h3>Controle Total</h3>
+                <p>Registre e acompanhe suas receitas e despesas de maneira intuitiva. Mantenha sua vida financeira
+                    organizada.</p>
             </div>
-        </div>
+
+            <div class="feature">
+                <h3>Relatórios Visuais</h3>
+                <p>Acompanhe seu progresso com relatórios e gráficos interativos para ajudar na tomada de decisões.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Segurança de Dados</h3>
+                <p>Proteja suas informações financeiras com a mais alta segurança. Seus dados estão seguros conosco.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Defina Suas Metas</h3>
+                <p>Estabeleça e acompanhe suas metas financeiras. O Meu Financeiro ajuda você a atingir seus objetivos
+                    com mais clareza.</p>
+            </div>
+        </section>
     </div>
-    <script src="script.js"></script>
+
+    <footer>
+        <p>© 2025 Meu Financeiro - Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+    </footer>
 </body>
 
 </html>

@@ -11,20 +11,26 @@
 <body>
     <div class="sidebar">
         <ul>
+            <li><a href="index.html">Início</a></li>
             <li><a href="calculadora.html">Calculadora</a></li>
             <li><a href="lista.html">Lista de Tarefas</a></li>
             <li><a href="previsao.html">Previsão do Tempo</a></li>
             <li><a href="financeiro.html">Tabela Financeira</a></li>
+            <li><a href="meu-financeiro.html">Meu Financeiro</a></li>
         </ul>
     </div>
     <div class="content">
         <h1>Previsão do Tempo</h1>
-        <button onclick="obterLocalizacao()">Obter Previsão para Minha Localização</button>
+
+        <button onclick="obterLocalizacaoGPS()">📍 Obter Localização via GPS</button>
+        <button onclick="obterLocalizacaoPorIP()">🌍 Obter Localização via IP</button>
+
         <p id="localizacao"></p>
         <div id="previsao">
             <p>Carregando previsão...</p>
         </div>
     </div>
+
     <script src="previsao.js"></script>
 </body>
 

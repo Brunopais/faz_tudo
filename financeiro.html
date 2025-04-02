@@ -11,12 +11,15 @@
 <body>
     <div class="sidebar">
         <ul>
-            <li><a href="index.html">Calculadora</a></li>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="calculadora.html">Calculadora</a></li>
             <li><a href="lista.html">Lista de Tarefas</a></li>
             <li><a href="previsao.html">Previsão do Tempo</a></li>
             <li><a href="financeiro.html">Tabela Financeira</a></li>
+            <li><a href="meu-financeiro.html">Meu Financeiro</a></li>
         </ul>
     </div>
+
     <div class="content">
         <h1>Tabela Financeira</h1>
 
@@ -28,7 +31,19 @@
         </select>
         <input type="number" id="valor" placeholder="Valor">
         <input type="date" id="data">
-        <button onclick="adicionarTransacao()">Adicionar</button>
+
+        <!-- Categorias de Transação -->
+        <h4>Escolha uma Categoria</h4>
+        <select id="categoria">
+            <option value="Casa">Casa</option>
+            <option value="Carro">Carro</option>
+            <option value="Comida">Comida</option>
+            <option value="Extra">Extra</option>
+            <option value="Empresa">Empresa</option>
+            <option value="Devedores">Devedores</option>
+        </select>
+
+        <button id="btnAdicionar" onclick="adicionarTransacao()">Adicionar</button>
 
         <h2>Ganhos</h2>
         <ul id="lista-ganhos"></ul>

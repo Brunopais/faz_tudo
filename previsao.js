@@ -1,15 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Função que irá obter a localização atual do usuário
-    function obterLocalizacao() {
+    // Obtém a localização via GPS
+    function obterLocalizacaoGPS() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(obterPrevisaoTempo, exibirErro);
+            navigator.geolocation.getCurrentPosition(obterPrevisaoTempo, erroGPS);
         } else {
             alert("Geolocalização não é suportada neste navegador.");
         }
     }
 
-    // Função para exibir erro caso não consiga pegar a localização
-    function exibirErro(error) {
+    // Obtém a localização via IP
+    function obterLocalizacaoPorIP() {
+        fetch("https://ipapi.co/json/")
+            .then(response => response.json())
+            .then(data => {
+                const latitude = data.latitude;
+                const longitude = data.longitude;
+                const cidade = data.city;
+
+                document.getElementById("localizacao").innerHTML = `
+                    🌍 Sua localização por IP: <strong>${cidade}</strong> 
+                    <br>📍 Coordenadas: ${latitude}, ${longitude}
+                `;
+
+                obterPrevisaoTempo({ coords: { latitude, longitude } });
+            })
+            .catch(error => {
+                document.getElementById("localizacao").innerHTML = "Erro ao obter localização por IP.";
+                console.error("Erro ao obter localização por IP:", error);
+            });
+    }
+
+    // Exibe erro se o usuário negar o GPS
+    function erroGPS(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
                 alert("Usuário negou a solicitação de geolocalização.");
@@ -26,19 +48,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Função que busca a previsão do tempo
+    // Busca a previsão do tempo
     function obterPrevisaoTempo(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        // Exibe a localização para o usuário
-        document.getElementById("localizacao").innerHTML = `
-            Sua localização: Latitude: ${latitude}, Longitude: ${longitude}
+        document.getElementById("localizacao").innerHTML += `
+            <br>📍 Coordenadas: ${latitude}, ${longitude}
         `;
 
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&timezone=America/Sao_Paulo`;
 
-        // Fetch para buscar a previsão do tempo
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -79,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
-    // Adiciona o evento ao carregar a página para pegar a localização
-    window.obterLocalizacao = obterLocalizacao;
+    // Disponibiliza as funções para os botões
+    window.obterLocalizacaoGPS = obterLocalizacaoGPS;
+    window.obterLocalizacaoPorIP = obterLocalizacaoPorIP;
 });
